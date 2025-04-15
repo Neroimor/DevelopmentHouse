@@ -21,7 +21,6 @@ jobs:
       - name: Publish Blazor WebAssembly app
         run: |
           dotnet publish MyDevelopmentHouse.csproj -c Release -o release \
-            /p:StaticWebAssetBasePath=/DevelopmentHouse/ \
             /p:BasePath=/DevelopmentHouse/
           touch release/wwwroot/.nojekyll
 
