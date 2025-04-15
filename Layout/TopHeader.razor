@@ -1,0 +1,39 @@
+﻿@inject HttpClient Http
+@using DTO
+<div class="topData">
+    <h2>REFERENCE</h2>
+
+    <div class="itemsRow">
+        @if (dataLinks == null)
+        {
+            <p>Загрузка</p>
+        }
+        else
+        {
+
+            @foreach (var item in dataLinks)
+            {
+                <ElementUrl GetDataLinks="item"></ElementUrl>
+            }
+            
+        }
+
+    </div>
+    <p>© 2025 Neroimor. Все права защищены.</p>
+</div>
+@code {
+    private IEnumerable<DataLinks>? dataLinks;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            dataLinks = await Http.GetFromJsonAsync<IEnumerable<DataLinks>>("LinksAndResurse/LinksAndResurse.json");
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+}

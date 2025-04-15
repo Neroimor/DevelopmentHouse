@@ -1,0 +1,19 @@
+﻿.dabeName {
+    padding: 0.5%;
+}
+.logo {
+    width: 200px; /* Задаёт ширину изображения */
+    height: auto; /* Сохраняет пропорции изображения */
+    border: 2px solid #ccc; /* Задаёт рамку с толщиной 2px и светло-серым цветом */
+    padding: 5px; /* Добавляет отступы внутри рамки */
+    border-radius: 8px; /* Сглаживает углы рамки (по желанию) */
+}
+
+.dabeName h1 {
+    transition: color 0.4s ease, text-shadow 0.3s ease;
+}
+
+    .dabeName h1:hover {
+        color: yellow;
+        text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
+    }

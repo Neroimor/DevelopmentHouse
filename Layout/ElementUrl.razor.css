@@ -1,0 +1,28 @@
+﻿urlText {
+  
+}
+
+.urlText a {
+    text-decoration: none;
+    background-color: #1a1a1a;
+}
+
+.urlText h3 {
+    display: inline-block;
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 1em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+ 
+    background-color: #1a1a1a;
+}
+    .urlText h3:hover {
+        color: aqua;
+        text-shadow: 0 0 10px aqua, 0 0 20px aqua, 0 0 30px aqua;
+    }
+
+

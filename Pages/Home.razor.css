@@ -1,0 +1,13 @@
+﻿html, body {
+    height: 100%; /* Занимает всю высоту окна */
+    margin: 0; /* Убираем отступы */
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+body {
+    width: 100%; /* Занимает всю ширину экрана */
+    display: block;
+}

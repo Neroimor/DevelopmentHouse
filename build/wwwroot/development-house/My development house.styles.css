@@ -1,0 +1,168 @@
+/* development-house/Layout/ElementUrl.razor.rz.scp.css */
+urlText[b-nemigk10f6] {
+  
+}
+
+.urlText a[b-nemigk10f6] {
+    text-decoration: none;
+    background-color: #1a1a1a;
+}
+
+.urlText h3[b-nemigk10f6] {
+    display: inline-block;
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 1em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+ 
+    background-color: #1a1a1a;
+}
+    .urlText h3:hover[b-nemigk10f6] {
+        color: aqua;
+        text-shadow: 0 0 10px aqua, 0 0 20px aqua, 0 0 30px aqua;
+    }
+
+
+/* development-house/Layout/Header.razor.rz.scp.css */
+.headerBackground[b-fe7qw454x9] {
+    background-color: #0f0f0f;
+}
+
+.textHeader[b-fe7qw454x9] {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 2em;
+    width: 50%;
+    height: 10%;
+    padding: 1%;
+    color: white;
+    transition: color 0.4s ease, text-shadow 0.3s ease;
+    text-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white;
+}
+
+
+    .textHeader:hover[b-fe7qw454x9] {
+        color: #17ba00;
+        text-shadow: 0 0 10px #17ba00, 0 0 20px #17ba00, 0 0 30px #17ba00;
+    }
+/* development-house/Layout/MainLayout.razor.rz.scp.css */
+html[b-bzkpf0jxdm], body[b-bzkpf0jxdm] {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.layoutWrapper[b-bzkpf0jxdm] {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%; /* ⬅ важно! */
+}
+
+.pageContent[b-bzkpf0jxdm] {
+    flex: 1;
+    width: 100%; /* ⬅ тоже важно */
+}
+/* development-house/Layout/TopHeader.razor.rz.scp.css */
+
+
+.topData[b-5qj8b525vc] {
+    background-color: #1a1a1a;
+    bottom: 0; /* Прижимает к нижней границе окна */
+    left: 0;
+    right: 0;
+    padding: 20px; /* По желанию для внутреннего отступа */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+}
+.itemsRow[b-5qj8b525vc] {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center; /* Центрирует элементы по горизонтали */
+    align-items: center; /* Центрирует по вертикали (если нужно) */
+    gap: 1%;
+    flex-wrap: wrap; /* Чтобы переносились, если не влезают */
+    padding: 10px;
+}
+
+.topData h2[b-5qj8b525vc] {
+    padding-bottom: 0.5%;
+    padding-right:1%;
+    background-color: #1a1a1a;
+}
+
+.topData p[b-5qj8b525vc] {
+    padding: 0.5%;
+    background-color: #1a1a1a;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+    .topData p:hover[b-5qj8b525vc] {
+        background-color: #1a1a1a; /* оставим фон прежним */
+        background-image: linear-gradient(90deg, #1e3c72, #2a5298, #6dd5ed); /* градиент */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+
+/* development-house/Pages/ContetntVisite.razor.rz.scp.css */
+
+.textVisite[b-aj13lr6zqe] {
+    max-width: 400px; /* Максимальная ширина контейнера */
+    width: 80%; /* Процент от ширины экрана */
+    text-align: center;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+
+    .textVisite h3[b-aj13lr6zqe] {
+        padding: 0.5%;
+    }
+
+    .textVisite p[b-aj13lr6zqe],
+    .textVisite li[b-aj13lr6zqe] {
+        margin-bottom: 1rem;
+    }
+/* development-house/Pages/Home.razor.rz.scp.css */
+html[b-fmzch76bfq], body[b-fmzch76bfq] {
+    height: 100%; /* Занимает всю высоту окна */
+    margin: 0; /* Убираем отступы */
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+body[b-fmzch76bfq] {
+    width: 100%; /* Занимает всю ширину экрана */
+    display: block;
+}
+/* development-house/Pages/LogoCentral.razor.rz.scp.css */
+.dabeName[b-2kt23s5udb] {
+    padding: 0.5%;
+}
+.logo[b-2kt23s5udb] {
+    width: 200px; /* Задаёт ширину изображения */
+    height: auto; /* Сохраняет пропорции изображения */
+    border: 2px solid #ccc; /* Задаёт рамку с толщиной 2px и светло-серым цветом */
+    padding: 5px; /* Добавляет отступы внутри рамки */
+    border-radius: 8px; /* Сглаживает углы рамки (по желанию) */
+}
+
+.dabeName h1[b-2kt23s5udb] {
+    transition: color 0.4s ease, text-shadow 0.3s ease;
+}
+
+    .dabeName h1:hover[b-2kt23s5udb] {
+        color: yellow;
+        text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
+    }

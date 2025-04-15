@@ -1,0 +1,16 @@
+﻿@using DTO
+
+<div class="urlText">
+    <a href="@GetDataLinks.UrlReference ">
+        <h3>
+            @GetDataLinks.NameReference
+        </h3>
+    </a>
+
+</div>
+
+@code {
+
+    [Parameter, EditorRequired]
+    public DataLinks GetDataLinks { get; set; } = default!;
+}

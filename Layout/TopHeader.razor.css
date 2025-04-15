@@ -1,0 +1,44 @@
+﻿
+
+.topData {
+    background-color: #1a1a1a;
+    bottom: 0; /* Прижимает к нижней границе окна */
+    left: 0;
+    right: 0;
+    padding: 20px; /* По желанию для внутреннего отступа */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+}
+.itemsRow {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center; /* Центрирует элементы по горизонтали */
+    align-items: center; /* Центрирует по вертикали (если нужно) */
+    gap: 1%;
+    flex-wrap: wrap; /* Чтобы переносились, если не влезают */
+    padding: 10px;
+}
+
+.topData h2 {
+    padding-bottom: 0.5%;
+    padding-right:1%;
+    background-color: #1a1a1a;
+}
+
+.topData p {
+    padding: 0.5%;
+    background-color: #1a1a1a;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+    .topData p:hover {
+        background-color: #1a1a1a; /* оставим фон прежним */
+        background-image: linear-gradient(90deg, #1e3c72, #2a5298, #6dd5ed); /* градиент */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+

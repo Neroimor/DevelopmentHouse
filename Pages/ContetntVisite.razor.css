@@ -1,0 +1,18 @@
+﻿
+.textVisite {
+    max-width: 400px; /* Максимальная ширина контейнера */
+    width: 80%; /* Процент от ширины экрана */
+    text-align: center;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+
+    .textVisite h3 {
+        padding: 0.5%;
+    }
+
+    .textVisite p,
+    .textVisite li {
+        margin-bottom: 1rem;
+    }
