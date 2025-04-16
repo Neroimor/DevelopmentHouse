@@ -24,7 +24,8 @@
 
     private async Task HandleKeyDownAsync(KeyboardEventArgs e)
     {
-        if ((e.Key == " " || e.Code == "Space" || e.Code =="ArrowUp") && stateSpace == StateSpace.Ready)
+        startGame = true;
+        if ((e.Key == " " || e.Code == "Space" || e.Code == "ArrowUp") && stateSpace == StateSpace.Ready)
         {
             stateSpace = StateSpace.Jumping;
             await ExecuteJumpAsync();
@@ -84,8 +85,9 @@
     }
     private async Task ExecuteJumpAsync()
     {
-        int jumpHeight = 100;
-        int step = 8;
+        int jumpHeight = 170;
+        int step = 10;
+        int stepDown = 8;
         int delay = 20;
 
         while (y > -jumpHeight)
@@ -99,7 +101,7 @@
 
         while (y < 0)
         {
-            y += step;
+            y += stepDown;
             StateHasChanged();
             await Task.Delay(delay);
         }
@@ -121,16 +123,90 @@
         //     image.Style = customStyle;
         // }
     }
-    private int startEnemyPosition = 230;
-    private string customEnemyStyle => $"transform: translate({startEnemyPosition}px, {0}px); transition: transform 0.05s linear;";
-    protected override void OnInitialized()
+    private int startEnemyPositionX = 230;
+    private int startEnemyPositionY = 0;
+    private bool startGame = false;
+    private string customEnemyStyle => $"transform: translate({startEnemyPositionX}px, {startEnemyPositionY}px); transition: transform 0.05s linear;";
+    private string customEnemyStyleRestart => $"transform: translate({startEnemyPositionX}px, {startEnemyPositionY}px);";
+    private ImageItem? enemy;
+    protected override async Task OnInitializedAsync()
     {
-        Images.Add(new ImageItem
+        enemy = new ImageItem
             {
                 Src = "Logo/Logo.jpg",
                 Alt = "Logo",
                 Style = customEnemyStyle
-            });
+            };
+        Images.Add(enemy);
+
+        _ = MoveEnemy();
     }
+
+    int stepEnemy = 2;
+    int delayEnemy = 10;
+    private async Task MoveEnemy()
+    {
+        while (true)
+        {
+            await Task.Delay(10);
+            if (!startGame)
+                continue;
+            if (startGame)
+            {
+
+
+                while (startEnemyPositionX > -230)
+                {
+                    startEnemyPositionX -= stepEnemy;
+                    if (startEnemyPositionX == x && startEnemyPositionY == y)
+                    {
+
+                        await RestartAsync();
+                    }
+                    else if (startEnemyPositionX == x && startEnemyPositionY != y)
+                    {
+                        CountWinner++;
+                    }
+                    StateHasChanged();
+                    await Task.Delay(delayEnemy);
+                    if (startEnemyPositionX - stepEnemy == -230)
+                    {
+                        await DestroyAsync();
+                    }
+                }
+            }
+
+        }
+    }
+
+    private async Task RestartAsync()
+    {
+        CountWinner = 0;
+        delayEnemy = 10;
+        await DestroyAsync();
+    }
+
+    private async Task DestroyAsync()
+    {
+        await Task.Run(() =>
+        {
+        Images.RemoveAt(0);
+        startEnemyPositionX = 230;
+        if (enemy is not null)
+        {
+            enemy.Style = customEnemyStyleRestart;
+            StateHasChanged();
+            Images.Add(enemy);
+            enemy.Style = customEnemyStyle;
+            if (delayEnemy != 1 && CountWinner % 10==0)
+                {
+                    delayEnemy--;
+                }
+            }
+           
+        });
+
+    }
+
 
 }
