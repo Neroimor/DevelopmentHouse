@@ -1,0 +1,218 @@
+/* /Layout/ElementUrl.razor.rz.scp.css */
+urlText[b-iuv06s8eq8] {
+  
+}
+
+.urlText a[b-iuv06s8eq8] {
+    text-decoration: none;
+    background-color: #1a1a1a;
+}
+
+.urlText h3[b-iuv06s8eq8] {
+    display: inline-block;
+    padding: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 1em;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+ 
+    background-color: #1a1a1a;
+}
+    .urlText h3:hover[b-iuv06s8eq8] {
+        color: aqua;
+        text-shadow: 0 0 10px aqua, 0 0 20px aqua, 0 0 30px aqua;
+    }
+
+
+/* /Layout/Header.razor.rz.scp.css */
+.headerBackground[b-o16k34oypp] {
+    background-color: #0f0f0f;
+}
+
+.textHeader[b-o16k34oypp] {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 2em;
+    width: 50%;
+    height: 10%;
+    padding: 1%;
+    color: white;
+    transition: color 0.4s ease, text-shadow 0.3s ease;
+    text-shadow: 0 0 10px white, 0 0 10px white, 0 0 10px white;
+}
+
+
+    .textHeader:hover[b-o16k34oypp] {
+        color: #17ba00;
+        text-shadow: 0 0 10px #17ba00, 0 0 20px #17ba00, 0 0 30px #17ba00;
+    }
+/* /Layout/MainLayout.razor.rz.scp.css */
+html[b-pr3gk8nyc6], body[b-pr3gk8nyc6] {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.layoutWrapper[b-pr3gk8nyc6] {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%; /* ⬅ важно! */
+}
+
+.pageContent[b-pr3gk8nyc6] {
+    flex: 1;
+    width: 100%; /* ⬅ тоже важно */
+}
+/* /Layout/TopHeader.razor.rz.scp.css */
+
+
+.topData[b-e38k6tj6tg] {
+    background-color: #1a1a1a;
+    bottom: 0; /* Прижимает к нижней границе окна */
+    left: 0;
+    right: 0;
+    padding: 20px; /* По желанию для внутреннего отступа */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+}
+.itemsRow[b-e38k6tj6tg] {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center; /* Центрирует элементы по горизонтали */
+    align-items: center; /* Центрирует по вертикали (если нужно) */
+    gap: 1%;
+    flex-wrap: wrap; /* Чтобы переносились, если не влезают */
+    padding: 10px;
+}
+
+.topData h2[b-e38k6tj6tg] {
+    padding-bottom: 0.5%;
+    padding-right:1%;
+    background-color: #1a1a1a;
+}
+
+.topData p[b-e38k6tj6tg] {
+    padding: 0.5%;
+    background-color: #1a1a1a;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+    .topData p:hover[b-e38k6tj6tg] {
+        background-color: #1a1a1a; /* оставим фон прежним */
+        background-image: linear-gradient(90deg, #1e3c72, #2a5298, #6dd5ed); /* градиент */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+
+/* /Pages/ContetntVisite.razor.rz.scp.css */
+
+.textVisite[b-zxsxwf3l14] {
+    max-width: 400px; /* Максимальная ширина контейнера */
+    width: 80%; /* Процент от ширины экрана */
+    text-align: center;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+
+    .textVisite h3[b-zxsxwf3l14] {
+        padding: 0.5%;
+    }
+
+    .textVisite p[b-zxsxwf3l14],
+    .textVisite li[b-zxsxwf3l14] {
+        margin-bottom: 1rem;
+        list-style: none;
+    }
+/* /Pages/GameRunner.razor.rz.scp.css */
+.charterBack[b-ch5qj0t265] {
+    background-color: #1a1a1a;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 10%;
+    margin-bottom: 2%;
+    position: absolute;
+    position: relative;
+    overflow: hidden;
+}
+
+.charter[b-ch5qj0t265] {
+    width: 50px;
+    height: auto;
+    transform: translate(0px, 0px);
+}
+
+.Pad[b-ch5qj0t265]{
+    margin-bottom: 2%;
+}
+/* /Pages/Home.razor.rz.scp.css */
+html[b-d9hh4uzjec], body[b-d9hh4uzjec] {
+    height: 100%;
+    margin: 0; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+}
+
+body[b-d9hh4uzjec] {
+    width: 100%;
+    display: block;
+}
+/* /Pages/LogoCentral.razor.rz.scp.css */
+.dabeName[b-ufdytrljgr] {
+    padding: 0.5%;
+}
+.logo[b-ufdytrljgr] {
+    width: 200px; /* Задаёт ширину изображения */
+    height: auto; /* Сохраняет пропорции изображения */
+    border: 2px solid #ccc; /* Задаёт рамку с толщиной 2px и светло-серым цветом */
+    padding: 5px; /* Добавляет отступы внутри рамки */
+    border-radius: 8px; /* Сглаживает углы рамки (по желанию) */
+}
+
+.dabeName h1[b-ufdytrljgr] {
+    transition: color 0.4s ease, text-shadow 0.3s ease;
+}
+
+    .dabeName h1:hover[b-ufdytrljgr] {
+        color: yellow;
+        text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
+    }
+/* /Pages/MusicLoop.razor.rz.scp.css */
+.paddingMusic[b-1brsfkb2qu] {
+    margin-bottom: 1%;
+
+}
+
+    .paddingMusic button[b-1brsfkb2qu] {
+        box-shadow: none;
+        border: 1px solid #888;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        width: 20%;
+        height: auto;
+        cursor: pointer;
+        outline: none;
+        transform: none;
+        box-shadow: none !important;
+    }
+        .paddingMusic button:active[b-1brsfkb2qu] {
+            transform: none;
+            box-shadow: none;
+        }
+        .paddingMusic button:hover[b-1brsfkb2qu] {
+            background-color: #f0f0f0;
+            color: #000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
