@@ -14,7 +14,7 @@
 @code {
     private int x = 0;
     private int y = 0;
-    private string WhyStart => startGame ? "Игра начата" : "Нажмите на экран и пробел, чтобы начать игру";
+    private string WhyStart => startGame ? "Игра начата" : "Нажмите на экран и пробел, чтобы начать игру (Только на пк)";
     enum StateSpace { Ready, Jumping, Falling }
     enum StateMove { Right, Left, Stand }
     private StateSpace stateSpace = StateSpace.Ready;
@@ -113,17 +113,6 @@
 
     private List<ImageItem> Images = new List<ImageItem>();
 
-    private void UpdateImageStyles()
-    {
-        // Если хотите, вы можете менять стиль у всех элементов,
-        // например, путем перебора списка и обновления свойства Style.
-        // foreach (var image in Images)
-        // {
-        //     Здесь можно использовать общее значение customStyle,
-        //     либо сделать для каждого изображения индивидуальный расчет.
-        //     image.Style = customStyle;
-        // }
-    }
     private int startEnemyPositionX = 230;
     private int startEnemyPositionY = 0;
     private bool startGame = false;
