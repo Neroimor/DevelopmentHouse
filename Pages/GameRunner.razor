@@ -1,6 +1,13 @@
-﻿<div class="charterBack" tabindex="0" @onkeydown="HandleKeyDownAsync">
+﻿@using MyDevelopmentHouse.DTO
+<div class="charterBack" tabindex="0" @onkeydown="HandleKeyDownAsync">
     <img class="charter" src="Logo/Logo.jpg" alt="Logo" style="@customStyle" />
+    @foreach (var image in Images)
+    {
+        <img class="charter" src="@image.Src" style="@customEnemyStyle" />
+    }
 </div>
+
+
 
 <p class="Pad">Счёт: @CountWinner</p>
 @code {
@@ -8,7 +15,7 @@
     private int y = 0;
 
     enum StateSpace { Ready, Jumping, Falling }
-    enum StateMove {Right, Left, Stand}
+    enum StateMove { Right, Left, Stand }
     private StateSpace stateSpace = StateSpace.Ready;
     private StateMove stateMove = StateMove.Stand;
 
@@ -17,60 +24,69 @@
 
     private async Task HandleKeyDownAsync(KeyboardEventArgs e)
     {
-        if ((e.Key == " " || e.Code == "Space") && stateSpace == StateSpace.Ready)
+        if ((e.Key == " " || e.Code == "Space" || e.Code =="ArrowUp") && stateSpace == StateSpace.Ready)
         {
             stateSpace = StateSpace.Jumping;
             await ExecuteJumpAsync();
         }
 
-        if (e.Key =="a" && stateMove==StateMove.Stand)
+        if (e.Key == "ArrowLeft" && stateMove == StateMove.Stand)
         {
             stateMove = StateMove.Left;
             await MoveLeft();
         }
-        else if (e.Key == "d" && stateMove == StateMove.Stand)
+        else if (e.Key == "ArrowRight" && stateMove == StateMove.Stand)
         {
             stateMove = StateMove.Right;
             await MoveRight();
         }
-    }
 
+    }
     private async Task MoveLeft()
     {
         int maxLeft = 230;
-        int step = 8;
-        int delay = 20;
-
-        while (x > -maxLeft)
+        int step = 16;
+        int delay = 10;
+        int countStep = 0;
+        if (x > -maxLeft)
         {
-            x -= step;
-            StateHasChanged();
-            await Task.Delay(delay);
+            while (countStep < step)
+            {
+                x -= 2;
+                countStep++;
+                StateHasChanged();
+                await Task.Delay(delay);
+            }
+
         }
         stateMove = StateMove.Stand;
-    }
 
+    }
     private async Task MoveRight()
     {
         int maxRight = 230;
         int step = 8;
-        int delay = 20;
-
-        while (x < maxRight)
+        int delay = 10;
+        int countStep = 0;
+        if (x < maxRight)
         {
-            x += step;
-            StateHasChanged();
-            await Task.Delay(delay);
+            while (countStep < step)
+            {
+                x += 2;
+                countStep++;
+                StateHasChanged();
+                await Task.Delay(delay);
+            }
+
         }
         stateMove = StateMove.Stand;
+
     }
-
-
     private async Task ExecuteJumpAsync()
     {
-        int jumpHeight = 100; 
+        int jumpHeight = 100;
         int step = 8;
-        int delay = 20;      
+        int delay = 20;
 
         while (y > -jumpHeight)
         {
@@ -91,4 +107,30 @@
         y = 0;
         stateSpace = StateSpace.Ready;
     }
+
+    private List<ImageItem> Images = new List<ImageItem>();
+
+    private void UpdateImageStyles()
+    {
+        // Если хотите, вы можете менять стиль у всех элементов,
+        // например, путем перебора списка и обновления свойства Style.
+        // foreach (var image in Images)
+        // {
+        //     Здесь можно использовать общее значение customStyle,
+        //     либо сделать для каждого изображения индивидуальный расчет.
+        //     image.Style = customStyle;
+        // }
+    }
+    private int startEnemyPosition = 230;
+    private string customEnemyStyle => $"transform: translate({startEnemyPosition}px, {0}px); transition: transform 0.05s linear;";
+    protected override void OnInitialized()
+    {
+        Images.Add(new ImageItem
+            {
+                Src = "Logo/Logo.jpg",
+                Alt = "Logo",
+                Style = customEnemyStyle
+            });
+    }
+
 }

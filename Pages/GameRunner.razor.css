@@ -4,6 +4,9 @@
     margin-right: 30%;
     padding: 10%;
     margin-bottom: 2%;
+    position: absolute;
+    position: relative; /* важно! делает контейнер опорной точкой */
+    overflow: hidden; /* чтобы "выпадающее" изображение не выходило за рамки */
 }
 
 .charter {
