@@ -2,13 +2,17 @@
     <img class="charter" src="Logo/Logo.jpg" alt="Logo" style="@customStyle" />
 </div>
 
+<p class="Pad">Счёт: @CountWinner</p>
 @code {
     private int x = 0;
     private int y = 0;
 
     enum StateSpace { Ready, Jumping, Falling }
+    enum StateMove {Right, Left, Stand}
     private StateSpace stateSpace = StateSpace.Ready;
+    private StateMove stateMove = StateMove.Stand;
 
+    private int CountWinner = 0;
     private string customStyle => $"transform: translate({x}px, {y}px); transition: transform 0.05s linear;";
 
     private async Task HandleKeyDownAsync(KeyboardEventArgs e)
@@ -18,7 +22,49 @@
             stateSpace = StateSpace.Jumping;
             await ExecuteJumpAsync();
         }
+
+        if (e.Key =="a" && stateMove==StateMove.Stand)
+        {
+            stateMove = StateMove.Left;
+            await MoveLeft();
+        }
+        else if (e.Key == "d" && stateMove == StateMove.Stand)
+        {
+            stateMove = StateMove.Right;
+            await MoveRight();
+        }
     }
+
+    private async Task MoveLeft()
+    {
+        int maxLeft = 230;
+        int step = 8;
+        int delay = 20;
+
+        while (x > -maxLeft)
+        {
+            x -= step;
+            StateHasChanged();
+            await Task.Delay(delay);
+        }
+        stateMove = StateMove.Stand;
+    }
+
+    private async Task MoveRight()
+    {
+        int maxRight = 230;
+        int step = 8;
+        int delay = 20;
+
+        while (x < maxRight)
+        {
+            x += step;
+            StateHasChanged();
+            await Task.Delay(delay);
+        }
+        stateMove = StateMove.Stand;
+    }
+
 
     private async Task ExecuteJumpAsync()
     {
