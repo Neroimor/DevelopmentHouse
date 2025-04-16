@@ -1,0 +1,48 @@
+﻿<div class="charterBack" tabindex="0" @onkeydown="HandleKeyDownAsync">
+    <img class="charter" src="Logo/Logo.jpg" alt="Logo" style="@customStyle" />
+</div>
+
+@code {
+    private int x = 0;
+    private int y = 0;
+
+    enum StateSpace { Ready, Jumping, Falling }
+    private StateSpace stateSpace = StateSpace.Ready;
+
+    private string customStyle => $"transform: translate({x}px, {y}px); transition: transform 0.05s linear;";
+
+    private async Task HandleKeyDownAsync(KeyboardEventArgs e)
+    {
+        if ((e.Key == " " || e.Code == "Space") && stateSpace == StateSpace.Ready)
+        {
+            stateSpace = StateSpace.Jumping;
+            await ExecuteJumpAsync();
+        }
+    }
+
+    private async Task ExecuteJumpAsync()
+    {
+        int jumpHeight = 100; 
+        int step = 8;
+        int delay = 20;      
+
+        while (y > -jumpHeight)
+        {
+            y -= step;
+            StateHasChanged();
+            await Task.Delay(delay);
+        }
+
+        stateSpace = StateSpace.Falling;
+
+        while (y < 0)
+        {
+            y += step;
+            StateHasChanged();
+            await Task.Delay(delay);
+        }
+
+        y = 0;
+        stateSpace = StateSpace.Ready;
+    }
+}
