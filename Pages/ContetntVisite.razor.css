@@ -15,4 +15,5 @@
     .textVisite p,
     .textVisite li {
         margin-bottom: 1rem;
+        list-style: none;
     }
