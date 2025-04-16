@@ -14,17 +14,26 @@
 
     private async Task PlayMusic()
     {
-        if (stateMusic==false)
+        try
         {
-            txtPlay = "▶️ Выключить музыку";
-            stateMusic = true;
-            await JS.InvokeVoidAsync("eval", "document.getElementById('bgMusic').play()");
+            if (!stateMusic)
+            {
+                txtPlay = "▶️ Выключить музыку";
+                stateMusic = true;
+                await JS.InvokeVoidAsync("eval", "document.getElementById('bgMusic').play()");
+            }
+            else
+            {
+                txtPlay = "▶️ Включить музыку";
+                stateMusic = false;
+                await JS.InvokeVoidAsync("eval", "document.getElementById('bgMusic').pause()");
+            }
         }
-        else
+        catch (JSException ex)
         {
-            txtPlay = "▶️ Включить музыку";
-            stateMusic = false;
-            await JS.InvokeVoidAsync("eval", "document.getElementById('bgMusic').pause()");
+            // Можно вывести лог ошибки в консоль или обработать иначе,
+            // чтобы приложение не падало.
+            Console.WriteLine(ex.Message);
         }
       
     }
