@@ -1,4 +1,5 @@
 ﻿@using MyDevelopmentHouse.DTO
+<p class="Pad">@WhyStart</p>
 <div class="charterBack" tabindex="0" @onkeydown="HandleKeyDownAsync">
     <img class="charter" src="Logo/Logo.jpg" alt="Logo" style="@customStyle" />
     @foreach (var image in Images)
@@ -13,7 +14,7 @@
 @code {
     private int x = 0;
     private int y = 0;
-
+    private string WhyStart => startGame ? "Игра начата" : "Нажмите на экран и пробел, чтобы начать игру";
     enum StateSpace { Ready, Jumping, Falling }
     enum StateMove { Right, Left, Stand }
     private StateSpace stateSpace = StateSpace.Ready;
@@ -133,12 +134,12 @@
     {
         enemy = new ImageItem
             {
-                Src = "Logo/Logo.jpg",
-                Alt = "Logo",
+                Src = "Image/Enemy.png",
+                Alt = "Enemy",
                 Style = customEnemyStyle
             };
         Images.Add(enemy);
-
+        await Task.Yield();
         _ = MoveEnemy();
     }
 
@@ -158,6 +159,7 @@
                 while (startEnemyPositionX > -230)
                 {
                     startEnemyPositionX -= stepEnemy;
+
                     if (startEnemyPositionX == x && startEnemyPositionY == y)
                     {
 
@@ -167,6 +169,7 @@
                     {
                         CountWinner++;
                     }
+       
                     StateHasChanged();
                     await Task.Delay(delayEnemy);
                     if (startEnemyPositionX - stepEnemy == -230)
