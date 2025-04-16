@@ -1,0 +1,28 @@
+﻿<audio id="bgMusic" autoplay loop>
+    <source src="/Music/Interstellar Whispers.mp3" type="audio/mpeg">
+</audio>
+
+<button @onclick="PlayMusic">@txtPlay</button>
+
+@code {
+    [Inject] private IJSRuntime JS { get; set; }
+    private string txtPlay = "▶️ Включить музыку";
+    private bool stateMusic = false;
+
+    private async Task PlayMusic()
+    {
+        if (stateMusic==false)
+        {
+            txtPlay = "▶️ Выключить музыку";
+            stateMusic = true;
+            await JS.InvokeVoidAsync("eval", "document.getElementById('bgMusic').play()");
+        }
+        else
+        {
+            txtPlay = "▶️ Включить музыку";
+            stateMusic = false;
+            await JS.InvokeVoidAsync("eval", "document.getElementById('bgMusic').pause()");
+        }
+      
+    }
+}
