@@ -1,0 +1,20 @@
+﻿.charterBack {
+    background-color: #1a1a1a;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 10%;
+    margin-bottom: 2%;
+    position: absolute;
+    position: relative; /* важно! делает контейнер опорной точкой */
+    overflow: hidden; /* чтобы "выпадающее" изображение не выходило за рамки */
+}
+
+.charter {
+    width: 50px;
+    height: auto;
+    transform: translate(0px, 0px);
+}
+
+.Pad{
+    margin-bottom: 2%;
+}
